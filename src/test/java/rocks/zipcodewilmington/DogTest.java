@@ -2,7 +2,10 @@ package rocks.zipcodewilmington;
 
 import org.junit.Assert;
 import org.junit.Test;
+import rocks.zipcodewilmington.animals.Animal;
+import rocks.zipcodewilmington.animals.Mammal;
 import rocks.zipcodewilmington.animals.Dog;
+import java.util.Date;
 
 /**
  * @author leon on 4/19/18.
@@ -27,5 +30,94 @@ public class DogTest {
         // Then (we expect to get the given name from the dog)
         String dogName = dog.getName();
         Assert.assertEquals(dogName, givenName);
+    }
+
+    // TODO - Create tests for `new Dog(String name, Date birthDate, Integer id)`
+        @Test
+        public void dogTest() {
+        String expectedName = "";
+        Date expectedBirthDate = null;
+        Integer expectedID = 0;
+
+        Dog myDog = new Dog(expectedName, expectedBirthDate, expectedID);
+
+        String actualName = myDog.getName();
+        Date actualBirthDate = myDog.getBirthDate();
+        Integer actualID = myDog.getId();
+
+        Assert.assertEquals(expectedName, actualName);
+        Assert.assertEquals(expectedBirthDate, actualBirthDate);
+        Assert.assertEquals(expectedID, actualID);
+    }
+
+    // TODO - Create tests for `speak`
+    @Test
+    public void speakTest() {
+
+        String expected = "bark!";
+
+        Dog myDog = new Dog(null, null, null);
+
+        String actual = myDog.speak();
+
+        Assert.assertEquals(expected, actual);
+
+    }
+    // TODO - Create tests for `setBirthDate(Date birthDate)`
+    @Test
+    public void setBirthDateTest(){
+        Date expected = new Date(01/01/12);
+
+        Dog myDog = new Dog(null, expected, null);
+
+        Date actual = myDog.getBirthDate();
+
+        Assert.assertEquals(expected, actual);
+    }
+    // TODO - Create tests for `void eat(Food food)`
+    @Test
+    public void eatTest(){
+        Integer expected = 1;
+
+        Dog myDog = new Dog(null, null, null);
+
+        myDog.eat(null);
+
+        Integer actual = myDog.getNumberOfMealsEaten();
+
+        Assert.assertEquals(expected, actual);
+    }
+    // TODO - Create tests for `Integer getId()`
+    @Test
+    public void getIdTest(){
+        Integer expected = 12;
+
+        Dog myDog = new Dog(null, null, expected);
+
+        Integer actual = myDog.getId();
+
+        Assert.assertEquals(expected, actual);
+    }
+    // TODO - Create test to check Animal inheritance; google search `java instanceof keyword`
+    @Test
+    public void animInherTest(){
+        Dog myDog = new Dog(null, null, null);
+
+        Boolean expected = true;
+
+        Boolean actual = myDog instanceof Animal;
+
+        Assert.assertEquals(expected, actual);
+    }
+    // TODO - Create test to check Mammal inheritance; google search `java instanceof keyword`
+    @Test
+    public void mamInherTest(){
+        Dog myDog = new Dog(null, null, null);
+
+        Boolean expected = true;
+
+        Boolean actual = myDog instanceof Mammal;
+
+        Assert.assertEquals(expected, actual);
     }
 }
